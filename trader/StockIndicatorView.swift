@@ -7,10 +7,16 @@
 
 import UIKit
 
+enum StockIndicatorCase {
+    case rising
+    case falling
+    case natural
+}
+
 class StockIndicatorView: UIView {
     
     var indicatorImage = UIImageView()
-    var isRising = false
+    var situation: StockIndicatorCase?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,9 +27,12 @@ class StockIndicatorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure() {
-        
-        backgroundColor = isRising ? .systemGreen : .systemRed
+    init(indicatorCase: StockIndicatorCase) {
+        super.init(frame: .zero)
+        configure(for: indicatorCase)
+    }
+    
+    private func configure(for indicatorCase: StockIndicatorCase = .natural) {
         layer.cornerRadius = 5
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -32,24 +41,34 @@ class StockIndicatorView: UIView {
         indicatorImage.contentMode = .scaleAspectFill
         indicatorImage.tintColor = .white
         
-        indicatorImage.image = isRising ?
-        UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black)) :
-        UIImage(systemName: "chevron.compact.down", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
-        
-        if isRising {
+        switch indicatorCase {
+        case .rising:
+            backgroundColor = .systemGreen
+            indicatorImage.image =
+            UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
+            
             NSLayoutConstraint.activate([
-                indicatorImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                indicatorImage.topAnchor.constraint(equalTo: self.topAnchor,constant: 4),
-                indicatorImage.heightAnchor.constraint(equalToConstant: 20),
-                indicatorImage.widthAnchor.constraint(equalToConstant: 20)
+                indicatorImage.topAnchor.constraint(equalTo: self.topAnchor,constant: 4)
             ])
-        } else {
+        case .falling:
+            backgroundColor = .systemRed
+            indicatorImage.image =
+            UIImage(systemName: "chevron.compact.down", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
+            
             NSLayoutConstraint.activate([
-                indicatorImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                indicatorImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -4),
-                indicatorImage.heightAnchor.constraint(equalToConstant: 20),
-                indicatorImage.widthAnchor.constraint(equalToConstant: 20)
+                indicatorImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -4)
             ])
+        case .natural:
+            backgroundColor = .systemGray
         }
+        
+        
+        
+        
+        NSLayoutConstraint.activate([
+            indicatorImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            indicatorImage.heightAnchor.constraint(equalToConstant: 20),
+            indicatorImage.widthAnchor.constraint(equalToConstant: 20)
+        ])
     }
 }

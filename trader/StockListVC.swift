@@ -10,7 +10,7 @@ import UIKit
 class StockListVC: UIViewController {
     
     var button = TRButton()
-    var indicator = StockIndicatorView()
+    var indicator = StockIndicatorView(indicatorCase: .falling)
 
     override func viewDidLoad() {
         super.viewDidLoad()
