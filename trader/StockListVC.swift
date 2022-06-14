@@ -48,6 +48,7 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
+        cell.isUserInteractionEnabled = false
         cell.set()
         return cell
     }

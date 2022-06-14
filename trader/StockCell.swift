@@ -53,7 +53,7 @@ class StockCell: UITableViewCell {
             
             stockName.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding),
             stockName.topAnchor.constraint(equalTo: indicatorView.topAnchor),
-            stockName.widthAnchor.constraint(equalToConstant: 200),
+            stockName.widthAnchor.constraint(equalToConstant: 100),
             stockName.heightAnchor.constraint(equalToConstant: 24),
             
             lastUpdatedLabel.bottomAnchor.constraint(equalTo: indicatorView.bottomAnchor),
@@ -61,7 +61,7 @@ class StockCell: UITableViewCell {
             lastUpdatedLabel.widthAnchor.constraint(equalTo: stockName.widthAnchor),
             lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            changeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: padding),
+            changeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -padding),
             changeLabel.topAnchor.constraint(equalTo: indicatorView.topAnchor),
             changeLabel.widthAnchor.constraint(equalToConstant: 100),
             changeLabel.heightAnchor.constraint(equalToConstant: 24),
