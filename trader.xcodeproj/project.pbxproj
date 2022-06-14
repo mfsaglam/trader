@@ -14,6 +14,7 @@
 		12C1358C2858FD760002F85A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C1358A2858FD760002F85A /* LaunchScreen.storyboard */; };
 		12C13594285911B30002F85A /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13593285911B30002F85A /* StockCell.swift */; };
 		12C13596285912500002F85A /* TRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13595285912500002F85A /* TRButton.swift */; };
+		12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13597285926AD0002F85A /* StockIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		12C1358D2858FD760002F85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12C13593285911B30002F85A /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
 		12C13595285912500002F85A /* TRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRButton.swift; sourceTree = "<group>"; };
+		12C13597285926AD0002F85A /* StockIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				12C1357F2858FD750002F85A /* AppDelegate.swift */,
 				12C135812858FD750002F85A /* SceneDelegate.swift */,
 				12C135832858FD750002F85A /* StockListVC.swift */,
+				12C13597285926AD0002F85A /* StockIndicatorView.swift */,
 				12C135882858FD760002F85A /* Assets.xcassets */,
 				12C1358A2858FD760002F85A /* LaunchScreen.storyboard */,
 				12C1358D2858FD760002F85A /* Info.plist */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12C135842858FD750002F85A /* StockListVC.swift in Sources */,
+				12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */,
 				12C135802858FD750002F85A /* AppDelegate.swift in Sources */,
 				12C13596285912500002F85A /* TRButton.swift in Sources */,
 				12C13594285911B30002F85A /* StockCell.swift in Sources */,
