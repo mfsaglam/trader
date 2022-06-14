@@ -30,8 +30,8 @@ class StockListVC: UIViewController {
             
             indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             indicator.topAnchor.constraint(equalTo: button.bottomAnchor),
-            indicator.heightAnchor.constraint(equalToConstant: 60),
-            indicator.widthAnchor.constraint(equalToConstant: 30)
+            indicator.heightAnchor.constraint(equalToConstant: 45),
+            indicator.widthAnchor.constraint(equalToConstant: 25)
         ])
     }
 
