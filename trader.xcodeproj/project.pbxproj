@@ -15,6 +15,8 @@
 		12C13594285911B30002F85A /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13593285911B30002F85A /* StockCell.swift */; };
 		12C13596285912500002F85A /* TRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13595285912500002F85A /* TRButton.swift */; };
 		12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13597285926AD0002F85A /* StockIndicatorView.swift */; };
+		12C1359A285930900002F85A /* TRTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13599285930900002F85A /* TRTitleLabel.swift */; };
+		12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		12C13593285911B30002F85A /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
 		12C13595285912500002F85A /* TRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRButton.swift; sourceTree = "<group>"; };
 		12C13597285926AD0002F85A /* StockIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockIndicatorView.swift; sourceTree = "<group>"; };
+		12C13599285930900002F85A /* TRTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTitleLabel.swift; sourceTree = "<group>"; };
+		12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				12C1358D2858FD760002F85A /* Info.plist */,
 				12C13593285911B30002F85A /* StockCell.swift */,
 				12C13595285912500002F85A /* TRButton.swift */,
+				12C13599285930900002F85A /* TRTitleLabel.swift */,
+				12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */,
 			);
 			path = trader;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 				12C135802858FD750002F85A /* AppDelegate.swift in Sources */,
 				12C13596285912500002F85A /* TRButton.swift in Sources */,
 				12C13594285911B30002F85A /* StockCell.swift in Sources */,
+				12C1359A285930900002F85A /* TRTitleLabel.swift in Sources */,
+				12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */,
 				12C135822858FD750002F85A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
