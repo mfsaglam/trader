@@ -32,6 +32,10 @@ class StockIndicatorView: UIView {
         configure(for: indicatorCase)
     }
     
+    func changeIndicator(with indicatorCase: StockIndicatorCase) {
+        configure(for: indicatorCase)
+    }
+    
     private func configure(for indicatorCase: StockIndicatorCase = .natural) {
         layer.cornerRadius = 5
         translatesAutoresizingMaskIntoConstraints = false
@@ -61,9 +65,6 @@ class StockIndicatorView: UIView {
         case .natural:
             backgroundColor = .systemGray
         }
-        
-        
-        
         
         NSLayoutConstraint.activate([
             indicatorImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),

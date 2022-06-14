@@ -25,7 +25,7 @@ class TRSecondaryTitleLabel: UILabel {
     }
     
     private func configure() {
-        textColor = .secondaryLabel
+        textColor = .gray
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
     }

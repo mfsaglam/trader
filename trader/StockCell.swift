@@ -13,7 +13,7 @@ class StockCell: UITableViewCell {
     
     var indicatorView = StockIndicatorView()
     var stockName = TRTitleLabel(alignment: .left, fontSize: 20, color: .white)
-    var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 10)
+    var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
     var priceLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
     var changeLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .systemGreen)
 
@@ -26,12 +26,22 @@ class StockCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set() {
+        indicatorView.changeIndicator(with: .rising)
+        stockName.text = "USD/TRY"
+        lastUpdatedLabel.text = "10:34:40"
+        priceLabel.text = "100"
+        changeLabel.text = "%0.1"
+    }
+    
     private func configure() {
         addSubview(indicatorView)
         addSubview(stockName)
         addSubview(lastUpdatedLabel)
         addSubview(priceLabel)
         addSubview(changeLabel)
+        
+        backgroundColor = .black
         
         let padding: CGFloat = 8
         
@@ -41,15 +51,15 @@ class StockCell: UITableViewCell {
             indicatorView.heightAnchor.constraint(equalToConstant: 45),
             indicatorView.widthAnchor.constraint(equalToConstant: 25),
             
-            stockName.leadingAnchor.constraint(equalTo: indicatorView.leadingAnchor, constant: padding),
+            stockName.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding),
             stockName.topAnchor.constraint(equalTo: indicatorView.topAnchor),
             stockName.widthAnchor.constraint(equalToConstant: 200),
             stockName.heightAnchor.constraint(equalToConstant: 24),
             
-            lastUpdatedLabel.topAnchor.constraint(equalTo: stockName.bottomAnchor, constant: 4),
-            lastUpdatedLabel.leadingAnchor.constraint(equalTo: stockName.leadingAnchor),
+            lastUpdatedLabel.bottomAnchor.constraint(equalTo: indicatorView.bottomAnchor),
+            lastUpdatedLabel.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding),
             lastUpdatedLabel.widthAnchor.constraint(equalTo: stockName.widthAnchor),
-            lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 14),
+            lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 20),
             
             changeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: padding),
             changeLabel.topAnchor.constraint(equalTo: indicatorView.topAnchor),

@@ -10,16 +10,17 @@ import UIKit
 class StockListVC: UIViewController {
     
     var button = TRButton()
-    var indicator = StockIndicatorView(indicatorCase: .falling)
+    var tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureTableView()
     }
     
     func configureUI() {
         view.addSubview(button)
-        view.addSubview(indicator)
+        view.addSubview(tableView)
         button.set(title: "Son")
         
         NSLayoutConstraint.activate([
@@ -27,14 +28,30 @@ class StockListVC: UIViewController {
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             button.widthAnchor.constraint(equalToConstant: 130),
             button.heightAnchor.constraint(equalToConstant: 44),
-            
-            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            indicator.topAnchor.constraint(equalTo: button.bottomAnchor),
-            indicator.heightAnchor.constraint(equalToConstant: 45),
-            indicator.widthAnchor.constraint(equalToConstant: 25)
         ])
     }
+    
+    func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.frame = view.bounds
+        tableView.backgroundColor = .black
+        tableView.rowHeight = 55
+        tableView.register(StockCell.self, forCellReuseIdentifier: StockCell.reuseID)
+    }
+}
 
-
+extension StockListVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
+        cell.set()
+        return cell
+    }
+    
+    
 }
 
