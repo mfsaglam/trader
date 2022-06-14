@@ -12,6 +12,8 @@
 		12C135842858FD750002F85A /* StockListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C135832858FD750002F85A /* StockListVC.swift */; };
 		12C135892858FD760002F85A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12C135882858FD760002F85A /* Assets.xcassets */; };
 		12C1358C2858FD760002F85A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12C1358A2858FD760002F85A /* LaunchScreen.storyboard */; };
+		12C13594285911B30002F85A /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13593285911B30002F85A /* StockCell.swift */; };
+		12C13596285912500002F85A /* TRButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13595285912500002F85A /* TRButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		12C135882858FD760002F85A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12C1358B2858FD760002F85A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12C1358D2858FD760002F85A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12C13593285911B30002F85A /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		12C13595285912500002F85A /* TRButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				12C135882858FD760002F85A /* Assets.xcassets */,
 				12C1358A2858FD760002F85A /* LaunchScreen.storyboard */,
 				12C1358D2858FD760002F85A /* Info.plist */,
+				12C13593285911B30002F85A /* StockCell.swift */,
+				12C13595285912500002F85A /* TRButton.swift */,
 			);
 			path = trader;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			files = (
 				12C135842858FD750002F85A /* StockListVC.swift in Sources */,
 				12C135802858FD750002F85A /* AppDelegate.swift in Sources */,
+				12C13596285912500002F85A /* TRButton.swift in Sources */,
+				12C13594285911B30002F85A /* StockCell.swift in Sources */,
 				12C135822858FD750002F85A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
