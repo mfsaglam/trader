@@ -43,7 +43,7 @@ class StockCell: UITableViewCell {
         
         backgroundColor = .black
         
-        let padding: CGFloat = 8
+        let padding: CGFloat = 16
         
         NSLayoutConstraint.activate([
             indicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),

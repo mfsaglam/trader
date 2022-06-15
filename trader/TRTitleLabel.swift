@@ -21,12 +21,12 @@ class TRTitleLabel: UILabel {
     convenience init(alignment: NSTextAlignment, fontSize: CGFloat, color: UIColor) {
         self.init(frame: .zero)
         self.textAlignment = alignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         self.textColor = color
     }
     
     private func configure() {
-        textColor = .label
+        textColor = .white
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
         translatesAutoresizingMaskIntoConstraints = false

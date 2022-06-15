@@ -17,6 +17,7 @@
 		12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13597285926AD0002F85A /* StockIndicatorView.swift */; };
 		12C1359A285930900002F85A /* TRTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13599285930900002F85A /* TRTitleLabel.swift */; };
 		12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */; };
+		12E656452859C29C00D30C66 /* TRHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E656442859C29C00D30C66 /* TRHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		12C13597285926AD0002F85A /* StockIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockIndicatorView.swift; sourceTree = "<group>"; };
 		12C13599285930900002F85A /* TRTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTitleLabel.swift; sourceTree = "<group>"; };
 		12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		12E656442859C29C00D30C66 /* TRHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				12C13595285912500002F85A /* TRButton.swift */,
 				12C13599285930900002F85A /* TRTitleLabel.swift */,
 				12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */,
+				12E656442859C29C00D30C66 /* TRHeaderView.swift */,
 			);
 			path = trader;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				12C13594285911B30002F85A /* StockCell.swift in Sources */,
 				12C1359A285930900002F85A /* TRTitleLabel.swift in Sources */,
 				12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */,
+				12E656452859C29C00D30C66 /* TRHeaderView.swift in Sources */,
 				12C135822858FD750002F85A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
