@@ -45,12 +45,12 @@ class TRHeaderView: UIView {
             filterButtonTwo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             filterButtonTwo.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -trailingPadding),
             filterButtonTwo.heightAnchor.constraint(equalToConstant: 40),
-            filterButtonTwo.widthAnchor.constraint(equalToConstant: 100),
+            filterButtonTwo.widthAnchor.constraint(equalToConstant: 90),
             
             filterButtonOne.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             filterButtonOne.trailingAnchor.constraint(equalTo: filterButtonTwo.leadingAnchor, constant: -trailingPadding),
             filterButtonOne.heightAnchor.constraint(equalToConstant: 40),
-            filterButtonOne.widthAnchor.constraint(equalToConstant: 100)
+            filterButtonOne.widthAnchor.constraint(equalToConstant: 90)
         ])
     }
     

@@ -32,12 +32,21 @@ class StockListVC: UIViewController {
     }
     
     func configureTableView() {
+        var safeArea: UILayoutGuide!
+        safeArea = view.layoutMarginsGuide
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.frame = view.bounds
         tableView.backgroundColor = .black
         tableView.rowHeight = 55
         tableView.register(StockCell.self, forCellReuseIdentifier: StockCell.reuseID)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
     }
 }
 

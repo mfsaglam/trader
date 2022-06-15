@@ -9,7 +9,7 @@ import UIKit
 
 class TRButton: UIControl {
     
-    var titleLabel = UILabel()
+    var titleLabel = TRSecondaryTitleLabel(fontSize: 14)
     var buttonImageView = UIImageView()
     
     override init(frame: CGRect) {
@@ -29,7 +29,7 @@ class TRButton: UIControl {
     private func configure() {
         layer.cornerRadius = 10
         backgroundColor = .black
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.systemGray.cgColor
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -41,7 +41,6 @@ class TRButton: UIControl {
         buttonImageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
         titleLabel.textAlignment = .right
         titleLabel.textColor = .systemGray
         
@@ -54,8 +53,8 @@ class TRButton: UIControl {
         NSLayoutConstraint.activate([
             buttonImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             buttonImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
-            buttonImageView.heightAnchor.constraint(equalToConstant: 20),
-            buttonImageView.widthAnchor.constraint(equalToConstant: 20),
+            buttonImageView.heightAnchor.constraint(equalToConstant: 15),
+            buttonImageView.widthAnchor.constraint(equalToConstant: 15),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: buttonImageView.leadingAnchor, constant: -padding),
