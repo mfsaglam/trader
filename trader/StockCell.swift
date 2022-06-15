@@ -26,12 +26,12 @@ class StockCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set() {
+    func set(stock: MypageDefault) {
         indicatorView.changeIndicator(with: .rising)
-        stockName.text = "USD/TRY"
-        lastUpdatedLabel.text = "10:34:40"
-        priceLabel.text = "100"
-        changeLabel.text = "%0.1"
+        stockName.text = stock.cod
+        lastUpdatedLabel.text = stock.def
+        priceLabel.text = stock.gro
+        changeLabel.text = stock.tke
     }
     
     private func configure() {

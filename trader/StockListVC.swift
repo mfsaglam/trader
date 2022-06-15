@@ -12,10 +12,13 @@ class StockListVC: UIViewController {
     var button = TRButton()
     var tableView = UITableView()
 
+    var stockList: [MypageDefault] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureTableView()
+        getStocks()
     }
     
     func configureUI() {
@@ -29,6 +32,27 @@ class StockListVC: UIViewController {
             button.widthAnchor.constraint(equalToConstant: 130),
             button.heightAnchor.constraint(equalToConstant: 44),
         ])
+    }
+    
+    func getStocks() {
+        NetworkManager.shared.getStockList() { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let stocks):
+                self.stockList.append(contentsOf: stocks.mypageDefaults)
+                
+                self.updateData()
+                
+            case .failure(let error):
+                print(error.rawValue)            }
+        }
+    }
+    
+    func updateData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func configureTableView() {
@@ -52,13 +76,14 @@ class StockListVC: UIViewController {
 
 extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return stockList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
         cell.isUserInteractionEnabled = false
-        cell.set()
+        let stock = stockList[indexPath.row]
+        cell.set(stock: stock)
         return cell
     }
     

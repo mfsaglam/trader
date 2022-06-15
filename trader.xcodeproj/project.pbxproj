@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */; };
+		1270B2A82859EC9E00ABE8C0 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A72859EC9E00ABE8C0 /* Stock.swift */; };
 		12C135802858FD750002F85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1357F2858FD750002F85A /* AppDelegate.swift */; };
 		12C135822858FD750002F85A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C135812858FD750002F85A /* SceneDelegate.swift */; };
 		12C135842858FD750002F85A /* StockListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C135832858FD750002F85A /* StockListVC.swift */; };
@@ -18,9 +20,12 @@
 		12C1359A285930900002F85A /* TRTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C13599285930900002F85A /* TRTitleLabel.swift */; };
 		12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */; };
 		12E656452859C29C00D30C66 /* TRHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E656442859C29C00D30C66 /* TRHeaderView.swift */; };
+		12E656472859D00D00D30C66 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E656462859D00D00D30C66 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		1270B2A72859EC9E00ABE8C0 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		12C1357C2858FD750002F85A /* trader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12C1357F2858FD750002F85A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12C135812858FD750002F85A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		12C13599285930900002F85A /* TRTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTitleLabel.swift; sourceTree = "<group>"; };
 		12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		12E656442859C29C00D30C66 /* TRHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRHeaderView.swift; sourceTree = "<group>"; };
+		12E656462859D00D00D30C66 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,9 @@
 				12C13599285930900002F85A /* TRTitleLabel.swift */,
 				12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */,
 				12E656442859C29C00D30C66 /* TRHeaderView.swift */,
+				12E656462859D00D00D30C66 /* NetworkManager.swift */,
+				1270B2A72859EC9E00ABE8C0 /* Stock.swift */,
+				1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */,
 			);
 			path = trader;
 			sourceTree = "<group>";
@@ -154,6 +163,9 @@
 			files = (
 				12C135842858FD750002F85A /* StockListVC.swift in Sources */,
 				12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */,
+				1270B2A82859EC9E00ABE8C0 /* Stock.swift in Sources */,
+				1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */,
+				12E656472859D00D00D30C66 /* NetworkManager.swift in Sources */,
 				12C135802858FD750002F85A /* AppDelegate.swift in Sources */,
 				12C13596285912500002F85A /* TRButton.swift in Sources */,
 				12C13594285911B30002F85A /* StockCell.swift in Sources */,
