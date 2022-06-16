@@ -18,11 +18,24 @@ class TRTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     convenience init(alignment: NSTextAlignment, fontSize: CGFloat, color: UIColor) {
         self.init(frame: .zero)
         self.textAlignment = alignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         self.textColor = color
+    }
+    
+    func updateColor(with value: String?) {
+        guard let value = value else {
+            textColor = .white
+            return
+        }
+        if value.contains("-") {
+            textColor = .systemRed
+        } else {
+            textColor = .systemGreen
+        }
     }
     
     private func configure() {
