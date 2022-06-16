@@ -27,11 +27,20 @@ class StockCell: UITableViewCell {
     }
     
     func set(stock: MypageDefault) {
-        indicatorView.changeIndicator(with: .rising)
         stockName.text = stock.cod
-        lastUpdatedLabel.text = stock.def
-        priceLabel.text = stock.gro
-        changeLabel.text = stock.tke
+    }
+    func updateStockData(with value: L?) {
+        if let value = value {
+            indicatorView.changeIndicator(with: .rising)
+            lastUpdatedLabel.text = value.clo
+            priceLabel.text = value.las
+            changeLabel.text = value.pdd
+        } else {
+            indicatorView.changeIndicator(with: .natural)
+            lastUpdatedLabel.text = "---"
+            priceLabel.text = "---"
+            changeLabel.text = "---"
+        }
     }
     
     private func configure() {
@@ -41,6 +50,7 @@ class StockCell: UITableViewCell {
         addSubview(priceLabel)
         addSubview(changeLabel)
         
+        isUserInteractionEnabled = false
         backgroundColor = .black
         
         let padding: CGFloat = 16

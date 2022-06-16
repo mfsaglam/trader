@@ -13,12 +13,17 @@ class StockListVC: UIViewController {
     var tableView = UITableView()
 
     var stockList: [MypageDefault] = []
+    var stockData: [L?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureTableView()
         getStocks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func configureUI() {
@@ -41,15 +46,31 @@ class StockListVC: UIViewController {
             switch result {
             case .success(let stocks):
                 self.stockList.append(contentsOf: stocks.mypageDefaults)
-                
-                self.updateData()
+                self.updateViewOnMainThread()
+                self.startUpdatingStocks()
                 
             case .failure(let error):
                 print(error.rawValue)            }
         }
     }
     
-    func updateData() {
+    func startUpdatingStocks() {
+        var tkeList: [String] = []
+        for stock in stockList { tkeList.append(stock.tke) }
+        NetworkManager.shared.updateStockData(tkeList: tkeList) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let data):
+                self.stockData.append(contentsOf: data.l)
+                self.updateViewOnMainThread()
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
+    }
+    
+    func updateViewOnMainThread() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -81,9 +102,13 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
-        cell.isUserInteractionEnabled = false
         let stock = stockList[indexPath.row]
         cell.set(stock: stock)
+        if stockData.count != 0 {
+            cell.updateStockData(with: stockData[indexPath.row])
+        } else {
+            cell.updateStockData(with: nil)
+        }
         return cell
     }
     

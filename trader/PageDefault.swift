@@ -7,15 +7,25 @@
 
 import Foundation
 
-struct Stock: Codable {
+struct PageDefault: Decodable {
     let mypageDefaults: [MypageDefault]
     let mypage: [Mypage]
 }
 
-struct Mypage: Codable {
+struct Mypage: Decodable {
     let name, key: String
 }
 
-struct MypageDefault: Codable {
+struct MypageDefault: Decodable {
     let cod, gro, tke, def: String
+}
+
+struct StockData: Codable {
+    let l: [L]
+    let z: String
+}
+
+struct L: Codable {
+    let tke: String
+    let clo, pdd, las: String?
 }

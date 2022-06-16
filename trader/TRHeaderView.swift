@@ -22,6 +22,15 @@ class TRHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(with myPage: [Mypage]) {
+        if myPage.count != 0 {
+            filterButtonOne.set(title: myPage[0].name)
+            filterButtonTwo.set(title: myPage[1].name)
+        } else {
+            print("MyPage array has no values")
+        }
+    }
+    
     func configure() {
         
         self.backgroundColor = .black
