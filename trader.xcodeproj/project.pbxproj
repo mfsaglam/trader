@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		123FF445285B52B10080FF49 /* ColumnFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF444285B52B10080FF49 /* ColumnFilter.swift */; };
 		123FF447285B57E30080FF49 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF446285B57E30080FF49 /* Extension+UIView.swift */; };
 		1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */; };
 		1270B2A82859EC9E00ABE8C0 /* PageDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		123FF444285B52B10080FF49 /* ColumnFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFilter.swift; sourceTree = "<group>"; };
 		123FF446285B57E30080FF49 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDefault.swift; sourceTree = "<group>"; };
@@ -57,6 +55,110 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		123FF448285B59F70080FF49 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				12E656462859D00D00D30C66 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		123FF449285B5A050080FF49 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		123FF44A285B5A2A0080FF49 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				123FF446285B57E30080FF49 /* Extension+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		123FF44B285B5A410080FF49 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				123FF453285B5B490080FF49 /* Views */,
+				123FF44F285B5AFC0080FF49 /* Buttons */,
+				123FF450285B5B030080FF49 /* Cells */,
+				123FF451285B5B0A0080FF49 /* Labels */,
+				123FF452285B5B160080FF49 /* HeaderViews */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		123FF44C285B5A670080FF49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		123FF44D285B5A850080FF49 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				12C1357F2858FD750002F85A /* AppDelegate.swift */,
+				12C135812858FD750002F85A /* SceneDelegate.swift */,
+				12C135882858FD760002F85A /* Assets.xcassets */,
+				12C1358A2858FD760002F85A /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		123FF44E285B5AAA0080FF49 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				12C135832858FD750002F85A /* StockListVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		123FF44F285B5AFC0080FF49 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				12C13595285912500002F85A /* TRButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		123FF450285B5B030080FF49 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				12C13593285911B30002F85A /* StockCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		123FF451285B5B0A0080FF49 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				12C13599285930900002F85A /* TRTitleLabel.swift */,
+				12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		123FF452285B5B160080FF49 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				12E656442859C29C00D30C66 /* TRHeaderView.swift */,
+			);
+			path = HeaderViews;
+			sourceTree = "<group>";
+		};
+		123FF453285B5B490080FF49 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12C13597285926AD0002F85A /* StockIndicatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		12C135732858FD750002F85A = {
 			isa = PBXGroup;
 			children = (
@@ -76,23 +178,14 @@
 		12C1357E2858FD750002F85A /* trader */ = {
 			isa = PBXGroup;
 			children = (
-				12C1357F2858FD750002F85A /* AppDelegate.swift */,
-				12C135812858FD750002F85A /* SceneDelegate.swift */,
-				12C135832858FD750002F85A /* StockListVC.swift */,
-				12C13597285926AD0002F85A /* StockIndicatorView.swift */,
-				123FF446285B57E30080FF49 /* Extension+UIView.swift */,
-				12C135882858FD760002F85A /* Assets.xcassets */,
-				12C1358A2858FD760002F85A /* LaunchScreen.storyboard */,
+				123FF448285B59F70080FF49 /* Managers */,
+				123FF44C285B5A670080FF49 /* Model */,
+				123FF44B285B5A410080FF49 /* CustomViews */,
+				123FF44E285B5AAA0080FF49 /* Screens */,
+				123FF449285B5A050080FF49 /* Utilities */,
+				123FF44A285B5A2A0080FF49 /* Extensions */,
+				123FF44D285B5A850080FF49 /* Support */,
 				12C1358D2858FD760002F85A /* Info.plist */,
-				12C13593285911B30002F85A /* StockCell.swift */,
-				1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */,
-				12C13595285912500002F85A /* TRButton.swift */,
-				12C13599285930900002F85A /* TRTitleLabel.swift */,
-				12C1359B285931080002F85A /* TRSecondaryTitleLabel.swift */,
-				12E656442859C29C00D30C66 /* TRHeaderView.swift */,
-				123FF444285B52B10080FF49 /* ColumnFilter.swift */,
-				12E656462859D00D00D30C66 /* NetworkManager.swift */,
-				1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */,
 			);
 			path = trader;
 			sourceTree = "<group>";
@@ -180,7 +273,6 @@
 				12C1359C285931080002F85A /* TRSecondaryTitleLabel.swift in Sources */,
 				12E656452859C29C00D30C66 /* TRHeaderView.swift in Sources */,
 				12C135822858FD750002F85A /* SceneDelegate.swift in Sources */,
-				123FF445285B52B10080FF49 /* ColumnFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
