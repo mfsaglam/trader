@@ -38,6 +38,10 @@ class TRTitleLabel: UILabel {
         }
     }
     
+    func updateColor(with color: UIColor) {
+        textColor = color
+    }
+    
     private func configure() {
         textColor = .white
         adjustsFontSizeToFitWidth = true

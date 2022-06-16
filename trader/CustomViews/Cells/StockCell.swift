@@ -15,7 +15,7 @@ class StockCell: UITableViewCell {
     var stockName = TRTitleLabel(alignment: .left, fontSize: 20, color: .white)
     var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
     var firstLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
-    var secondLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .systemGreen)
+    var secondLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,18 +40,22 @@ class StockCell: UITableViewCell {
             return
         }
         lastUpdatedLabel.text = value.clo ?? "---"
+        indicatorView.changeIndicator(with: value.ddi)
         updateFirstColumn(with: value, for: callPair)
         updateSecondColumn(with: value, for: callPair)
     }
     
     private func updateFirstColumn(with value: L, for callPair: CallPair) {
+        firstLabel.updateColor(with: .white)
         switch callPair.first {
         case .son:
             firstLabel.text = value.las ?? "---"
         case .percentageFark:
             firstLabel.text = "%\(value.pdd ?? "---")"
+            firstLabel.updateColor(with: value.pdd)
         case .fark:
             firstLabel.text = value.ddi ?? "---"
+            firstLabel.updateColor(with: value.pdd)
         case .dusuk:
             firstLabel.text = value.low ?? "---"
         case .yuksek:
@@ -72,51 +76,32 @@ class StockCell: UITableViewCell {
     }
     
     private func updateSecondColumn(with value: L, for callPair: CallPair) {
+        secondLabel.updateColor(with: .white)
         switch callPair.second {
         case .son:
-            indicatorView.changeIndicator(with: value.las)
-            secondLabel.text = "%\(value.las ?? "---")"
-            secondLabel.updateColor(with: value.las)
+            secondLabel.text = value.las ?? "---"
         case .percentageFark:
-            indicatorView.changeIndicator(with: value.pdd)
             secondLabel.text = "%\(value.pdd ?? "---")"
             secondLabel.updateColor(with: value.pdd)
         case .fark:
-            indicatorView.changeIndicator(with: value.ddi)
-            secondLabel.text = value.ddi ?? "---"
-            secondLabel.updateColor(with: value.ddi)
+            secondLabel.text = "\(value.ddi ?? "---")"
+            secondLabel.updateColor(with: value.pdd)
         case .dusuk:
-            indicatorView.changeIndicator(with: value.low)
             secondLabel.text = value.low ?? "---"
-            secondLabel.updateColor(with: value.low)
         case .yuksek:
-            indicatorView.changeIndicator(with: value.hig)
             secondLabel.text = value.hig ?? "---"
-            secondLabel.updateColor(with: value.hig)
         case .alis:
-            indicatorView.changeIndicator(with: value.buy)
             secondLabel.text = value.buy ?? "---"
-            secondLabel.updateColor(with: value.buy)
         case .satis:
-            indicatorView.changeIndicator(with: value.sel)
             secondLabel.text = value.sel ?? "---"
-            secondLabel.updateColor(with: value.sel)
         case .ogKap:
-            indicatorView.changeIndicator(with: value.pdc)
             secondLabel.text = value.pdc ?? "---"
-            secondLabel.updateColor(with: value.pdc)
         case .tavan:
-            indicatorView.changeIndicator(with: value.cei)
             secondLabel.text = value.cei ?? "---"
-            secondLabel.updateColor(with: value.cei)
         case .taban:
-            indicatorView.changeIndicator(with: value.flo)
             secondLabel.text = value.flo ?? "---"
-            secondLabel.updateColor(with: value.flo)
         case .grupKodu:
-            indicatorView.changeIndicator(with: value.gco)
             secondLabel.text = value.gco ?? "---"
-            secondLabel.updateColor(with: value.gco)
         }
     }
     
