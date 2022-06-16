@@ -31,12 +31,12 @@ class StockCell: UITableViewCell {
     }
     func updateStockData(with value: L?) {
         if let value = value {
-            indicatorView.changeIndicator(with: .rising)
-            lastUpdatedLabel.text = value.clo
-            priceLabel.text = value.las
-            changeLabel.text = value.pdd
+            indicatorView.changeIndicator(with: value.pdd)
+            lastUpdatedLabel.text = value.clo ?? "---"
+            priceLabel.text = value.las ?? "---"
+            changeLabel.text = value.pdd ?? "---"
         } else {
-            indicatorView.changeIndicator(with: .natural)
+            indicatorView.changeIndicator(with: nil)
             lastUpdatedLabel.text = "---"
             priceLabel.text = "---"
             changeLabel.text = "---"

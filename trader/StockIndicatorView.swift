@@ -32,8 +32,16 @@ class StockIndicatorView: UIView {
         configure(for: indicatorCase)
     }
     
-    func changeIndicator(with indicatorCase: StockIndicatorCase) {
-        configure(for: indicatorCase)
+    func changeIndicator(with value: String?) {
+        guard let value = value else {
+            configure(for: .natural)
+            return
+        }
+        if value.contains("-") {
+            configure(for: .falling)
+        } else {
+            configure(for: .rising)
+        }
     }
     
     private func configure(for indicatorCase: StockIndicatorCase = .natural) {
