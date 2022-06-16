@@ -114,13 +114,30 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TRHeaderView()
+        headerView.delegate = self
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+}
+
+extension StockListVC: TRHeaderViewDelegate {
+    func didTapFilterButtonOne() {
+        let actionSheet = UIAlertController(title: "Test", message: "Test", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Test", style: .cancel, handler: { action in
+            print("test")
+        }))
+        present(actionSheet, animated: true)
+    }
     
-    
+    func didTapFilterButtonTwo() {
+        let actionSheet = UIAlertController(title: "Test", message: "Test", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Test", style: .cancel, handler: { action in
+            print("test")
+        }))
+        present(actionSheet, animated: true)
+    }
 }
 

@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol TRHeaderViewDelegate: AnyObject {
+    func didTapFilterButtonOne()
+    func didTapFilterButtonTwo()
+}
+
 class TRHeaderView: UIView {
     
     var symbolTitle = TRSecondaryTitleLabel(fontSize: 15)
     var filterButtonOne = TRButton()
     var filterButtonTwo = TRButton()
-
+    
+    weak var delegate: TRHeaderViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        configureButtons()
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +37,19 @@ class TRHeaderView: UIView {
         } else {
             print("MyPage array has no values")
         }
+    }
+    
+    func configureButtons() {
+        filterButtonOne.addTarget(self, action: #selector(filterButtonOneTapped), for: .touchUpInside)
+        filterButtonTwo.addTarget(self, action: #selector(filterButtonTwoTapped), for: .touchUpInside)
+    }
+    
+    @objc func filterButtonOneTapped() {
+        delegate?.didTapFilterButtonOne()
+    }
+    
+    @objc func filterButtonTwoTapped() {
+        delegate?.didTapFilterButtonTwo()
     }
     
     func configure() {

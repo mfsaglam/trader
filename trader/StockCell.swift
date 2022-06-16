@@ -34,13 +34,13 @@ class StockCell: UITableViewCell {
             indicatorView.changeIndicator(with: value.pdd)
             lastUpdatedLabel.text = value.clo ?? "---"
             priceLabel.text = value.las ?? "---"
-            changeLabel.text = value.pdd ?? "---"
+            changeLabel.text = "%\(value.pdd ?? "---")"
             changeLabel.updateColor(with: value.pdd)
         } else {
             indicatorView.changeIndicator(with: nil)
             lastUpdatedLabel.text = "---"
             priceLabel.text = "---"
-            changeLabel.text = "---"
+            changeLabel.text = "%---"
             changeLabel.updateColor(with: nil)
         }
     }
