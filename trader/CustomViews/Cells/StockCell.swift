@@ -35,6 +35,7 @@ class StockCell: UITableViewCell {
             indicatorView.changeIndicator(with: nil)
             lastUpdatedLabel.text = "---"
             firstLabel.text = "---"
+            firstLabel.updateColor(with: nil)
             secondLabel.text = "%---"
             secondLabel.updateColor(with: nil)
             return
