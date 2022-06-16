@@ -10,7 +10,7 @@ import UIKit
 class NetworkManager {
     static let shared = NetworkManager()
     private let stockListUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterviewSettings"
-    private let stockDataBaseUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterview?fields=pdd,las&stcs="
+    private let stockDataBaseUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterview?"
     
     private init() { }
     
@@ -48,9 +48,11 @@ class NetworkManager {
         task.resume()
     }
     
-    func updateStockData(tkeList: [String], completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
+    func updateStockData(tkeList: [String], fieldOne: String, fieldTwo: String, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         let stcs = tkeList.joined(separator: "~")
-        let urlString = stockDataBaseUrl + stcs
+//        let urlString = stockDataBaseUrl + "fields=" + fieldOne + "," + fieldTwo + "&stcs=" + stcs
+        let urlString = "\(stockDataBaseUrl)fields=\(fieldOne),\(fieldTwo)&stcs=\(stcs)"
+        
         guard let url = URL(string: urlString) else {
             completionHandler(.failure(.invalidUrl))
             return

@@ -53,6 +53,8 @@ class StockIndicatorView: UIView {
         indicatorImage.contentMode = .scaleAspectFill
         indicatorImage.tintColor = .white
         
+        indicatorImage.removeAllConstraints()
+        
         switch indicatorCase {
         case .rising:
             backgroundColor = .systemGreen

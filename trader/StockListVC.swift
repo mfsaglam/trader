@@ -16,6 +16,9 @@ class StockListVC: UIViewController {
     var pageInfo: [Mypage] = []
     var stockData: [L?] = []
     
+    var buttonOne = "Son"
+    var buttonTwo = "%Fark"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -52,14 +55,15 @@ class StockListVC: UIViewController {
                 self.startUpdatingStocks()
                 
             case .failure(let error):
-                print(error.rawValue)            }
+                print(error.rawValue)
+            }
         }
     }
     
     func startUpdatingStocks() {
         var tkeList: [String] = []
         for stock in stockList { tkeList.append(stock.tke) }
-        NetworkManager.shared.updateStockData(tkeList: tkeList) { [weak self] result in
+        NetworkManager.shared.updateStockData(tkeList: tkeList, fieldOne: "las", fieldTwo: "pdd") { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -117,6 +121,7 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TRHeaderView()
         headerView.delegate = self
+        headerView.set(buttonOne: buttonOne, buttonTwo: buttonTwo)
         return headerView
     }
     
@@ -130,7 +135,9 @@ extension StockListVC: TRHeaderViewDelegate {
         let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
             actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+                self.buttonOne = action.title ?? ""
                 print(info.key)
+                self.updateViewOnMainThread()
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
@@ -142,7 +149,9 @@ extension StockListVC: TRHeaderViewDelegate {
         let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
             actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+                self.buttonTwo = action.title ?? ""
                 print(info.key)
+                self.updateViewOnMainThread()
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
