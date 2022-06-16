@@ -41,7 +41,7 @@ class StockListVC: UIViewController {
                 self.updateViewOnMainThread()
                 self.startUpdatingStocks(pair: self.callPair)
             case .failure(let error):
-                print(error.rawValue)
+                self.showAlertOnMainThread(message: error.rawValue)
             }
         }
     }
