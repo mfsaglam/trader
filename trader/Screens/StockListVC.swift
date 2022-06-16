@@ -40,7 +40,6 @@ class StockListVC: UIViewController {
                 self.pageInfo.append(contentsOf: stocks.mypage)
                 self.updateViewOnMainThread()
                 self.startUpdatingStocks(pair: self.callPair)
-                
             case .failure(let error):
                 print(error.rawValue)
             }
@@ -50,7 +49,7 @@ class StockListVC: UIViewController {
     func startUpdatingStocks(pair: CallPair) {
         var tkeList: [String] = []
         for stock in stockList { tkeList.append(stock.tke) }
-        NetworkManager.shared.updateStockData(tkeList: tkeList, pair: pair) { [weak self] result in
+        NetworkManager.shared.startUpdatingStockData(tkeList: tkeList, pair: pair) { [weak self] result in
             guard let self = self else { return }
             
             switch result {

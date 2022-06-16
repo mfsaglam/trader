@@ -9,6 +9,7 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
+    private var timer: Timer?
     private let stockListUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterviewSettings"
     private let stockDataBaseUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterview?"
     
@@ -48,7 +49,18 @@ class NetworkManager {
         task.resume()
     }
     
-    func updateStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
+    func startUpdatingStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
+        stopUpdatingData()
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            self.updateStockData(tkeList: tkeList, pair: pair, completionHandler: completionHandler)
+        })
+    }
+    
+    func stopUpdatingData() {
+        timer?.invalidate()
+    }
+    
+    private func updateStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         let stcs = tkeList.joined(separator: "~")
         let urlString = "\(stockDataBaseUrl)fields=\(pair.first.rawValue),\(pair.second.rawValue),ddi&stcs=\(stcs)"
         
