@@ -24,8 +24,19 @@ class TRSecondaryTitleLabel: UILabel {
         configure()
     }
     
+    func highlight() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.layer.backgroundColor = UIColor.darkGray.cgColor
+            self?.layer.cornerRadius = 8
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.layer.backgroundColor = UIColor.clear.cgColor
+            }
+        }
+    }
+    
     private func configure() {
-        textColor = .gray
+        textColor = .lightGray
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
     }

@@ -13,9 +13,17 @@ class StockCell: UITableViewCell {
     
     var indicatorView = StockIndicatorView()
     var stockName = TRTitleLabel(alignment: .left, fontSize: 20, color: .white)
-    var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
     var firstLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
     var secondLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
+    var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
+    
+    var clo: String? {
+        didSet {
+            if oldValue != clo {
+                lastUpdatedLabel.highlight()
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,7 +48,8 @@ class StockCell: UITableViewCell {
             secondLabel.updateColor(with: nil)
             return
         }
-        lastUpdatedLabel.text = value.clo ?? "---"
+        clo = value.clo
+        lastUpdatedLabel.text = clo ?? "---"
         indicatorView.changeIndicator(with: value.ddi)
         updateFirstColumn(with: value, for: callPair)
         updateSecondColumn(with: value, for: callPair)
@@ -107,6 +116,7 @@ class StockCell: UITableViewCell {
     }
     
     private func configure() {
+        lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
         addSubview(indicatorView)
         addSubview(stockName)
         addSubview(lastUpdatedLabel)
@@ -131,7 +141,7 @@ class StockCell: UITableViewCell {
             
             lastUpdatedLabel.bottomAnchor.constraint(equalTo: indicatorView.bottomAnchor),
             lastUpdatedLabel.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding),
-            lastUpdatedLabel.widthAnchor.constraint(equalTo: stockName.widthAnchor),
+//            lastUpdatedLabel.widthAnchor.constraint(equalTo: stockName.widthAnchor),
             lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 20),
             
             secondLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -padding),
