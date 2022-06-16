@@ -13,8 +13,6 @@ class NetworkManager {
     private let stockListUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterviewSettings"
     private let stockDataBaseUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterview?"
     
-    private init() { }
-    
     func getStockList(completionHandler: @escaping (Result<PageDefault, TRError>) -> Void) {
         
         guard let url = URL(string: stockListUrl) else {
@@ -51,9 +49,9 @@ class NetworkManager {
     
     func startUpdatingStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         stopUpdatingData()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.updateStockData(tkeList: tkeList, pair: pair, completionHandler: completionHandler)
-        })
+        }
     }
     
     func stopUpdatingData() {

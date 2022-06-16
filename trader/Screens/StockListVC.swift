@@ -39,7 +39,10 @@ class StockListVC: UIViewController {
                 self.stockList.append(contentsOf: stocks.mypageDefaults)
                 self.pageInfo.append(contentsOf: stocks.mypage)
                 self.updateViewOnMainThread()
-                self.startUpdatingStocks(pair: self.callPair)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.startUpdatingStocks(pair: self.callPair)
+                }
             case .failure(let error):
                 self.showAlertOnMainThread(message: error.rawValue)
             }
