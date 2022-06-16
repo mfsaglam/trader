@@ -8,6 +8,8 @@
 import UIKit
 
 class TRSecondaryTitleLabel: UILabel {
+    
+    var insets = UIEdgeInsets.zero
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +26,24 @@ class TRSecondaryTitleLabel: UILabel {
         configure()
     }
     
+    func padding(_ top: CGFloat, _ bottom: CGFloat, _ left: CGFloat, _ right: CGFloat) {
+        self.frame = CGRect(x: 0, y: 0, width: self.frame.width + left + right, height: self.frame.height + top + bottom)
+        insets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        get {
+            var contentSize = super.intrinsicContentSize
+            contentSize.height += insets.top + insets.bottom
+            contentSize.width += insets.left + insets.right
+            return contentSize
+        }
+    }
+    
     func highlight() {
         UIView.animate(withDuration: 0.5) { [weak self] in
             self?.layer.backgroundColor = UIColor.darkGray.cgColor
@@ -37,6 +57,8 @@ class TRSecondaryTitleLabel: UILabel {
     
     private func configure() {
         textColor = .lightGray
+        padding(4, 4, 5, 5)
+        layer.cornerRadius = 8
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
     }

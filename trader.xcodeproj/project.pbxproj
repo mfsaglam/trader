@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		123FF447285B57E30080FF49 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF446285B57E30080FF49 /* Extension+UIView.swift */; };
+		123FF447285B57E30080FF49 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF446285B57E30080FF49 /* UIView+Ext.swift */; };
 		123FF455285B653F0080FF49 /* CallPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF454285B653F0080FF49 /* CallPair.swift */; };
-		123FF457285B6DFC0080FF49 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF456285B6DFC0080FF49 /* Extension+String.swift */; };
+		123FF457285B6DFC0080FF49 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF456285B6DFC0080FF49 /* String+Ext.swift */; };
 		1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */; };
 		1270B2A82859EC9E00ABE8C0 /* PageDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */; };
 		12C135802858FD750002F85A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C1357F2858FD750002F85A /* AppDelegate.swift */; };
@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		123FF446285B57E30080FF49 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		123FF446285B57E30080FF49 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		123FF454285B653F0080FF49 /* CallPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPair.swift; sourceTree = "<group>"; };
-		123FF456285B6DFC0080FF49 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		123FF456285B6DFC0080FF49 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		1270B2A52859E9E000ABE8C0 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		1270B2A72859EC9E00ABE8C0 /* PageDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDefault.swift; sourceTree = "<group>"; };
 		12C1357C2858FD750002F85A /* trader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,8 +78,8 @@
 		123FF44A285B5A2A0080FF49 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				123FF446285B57E30080FF49 /* Extension+UIView.swift */,
-				123FF456285B6DFC0080FF49 /* Extension+String.swift */,
+				123FF446285B57E30080FF49 /* UIView+Ext.swift */,
+				123FF456285B6DFC0080FF49 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,12 +266,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				123FF447285B57E30080FF49 /* Extension+UIView.swift in Sources */,
+				123FF447285B57E30080FF49 /* UIView+Ext.swift in Sources */,
 				12C135842858FD750002F85A /* StockListVC.swift in Sources */,
 				12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */,
 				1270B2A82859EC9E00ABE8C0 /* PageDefault.swift in Sources */,
 				1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */,
-				123FF457285B6DFC0080FF49 /* Extension+String.swift in Sources */,
+				123FF457285B6DFC0080FF49 /* String+Ext.swift in Sources */,
 				12E656472859D00D00D30C66 /* NetworkManager.swift in Sources */,
 				12C135802858FD750002F85A /* AppDelegate.swift in Sources */,
 				12C13596285912500002F85A /* TRButton.swift in Sources */,

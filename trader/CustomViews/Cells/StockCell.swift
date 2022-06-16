@@ -116,7 +116,6 @@ class StockCell: UITableViewCell {
     }
     
     private func configure() {
-        lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
         addSubview(indicatorView)
         addSubview(stockName)
         addSubview(lastUpdatedLabel)
@@ -140,9 +139,8 @@ class StockCell: UITableViewCell {
             stockName.heightAnchor.constraint(equalToConstant: 24),
             
             lastUpdatedLabel.bottomAnchor.constraint(equalTo: indicatorView.bottomAnchor),
-            lastUpdatedLabel.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding),
-//            lastUpdatedLabel.widthAnchor.constraint(equalTo: stockName.widthAnchor),
-            lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 20),
+            lastUpdatedLabel.leadingAnchor.constraint(equalTo: indicatorView.trailingAnchor, constant: padding - 4),
+            lastUpdatedLabel.heightAnchor.constraint(equalToConstant: 21),
             
             secondLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor,constant: -padding),
             secondLabel.topAnchor.constraint(equalTo: indicatorView.topAnchor),
