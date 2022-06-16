@@ -58,6 +58,7 @@ class StockIndicatorView: UIView {
         switch indicatorCase {
         case .rising:
             backgroundColor = .systemGreen
+            indicatorImage.isHidden = false
             indicatorImage.image =
             UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
             
@@ -66,6 +67,7 @@ class StockIndicatorView: UIView {
             ])
         case .falling:
             backgroundColor = .systemRed
+            indicatorImage.isHidden = false
             indicatorImage.image =
             UIImage(systemName: "chevron.compact.down", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
             
@@ -74,6 +76,7 @@ class StockIndicatorView: UIView {
             ])
         case .natural:
             backgroundColor = .systemGray
+            indicatorImage.isHidden = true
         }
         
         NSLayoutConstraint.activate([

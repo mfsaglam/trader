@@ -27,5 +27,5 @@ struct StockData: Codable {
 
 struct L: Codable {
     let tke: String
-    let clo, pdd, las: String?
+    let las, pdd, ddi, low, hig, buy, sel, pdc, cei, flo, gco, clo : String?
 }

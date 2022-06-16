@@ -9,7 +9,6 @@ import UIKit
 
 class StockListVC: UIViewController {
     
-    var button = TRButton()
     var tableView = UITableView()
 
     var stockList: [MypageDefault] = []
@@ -19,31 +18,19 @@ class StockListVC: UIViewController {
     var buttonOne = "Son"
     var buttonTwo = "%Fark"
     
+    var callPair = CallPair(first: .son, second: .percentageFark)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         configureTableView()
-        getStocks()
+        getStocksAndStartUpdating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    func configureUI() {
-        view.addSubview(button)
-        view.addSubview(tableView)
-        button.set(title: "Son")
-        
-        NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            button.widthAnchor.constraint(equalToConstant: 130),
-            button.heightAnchor.constraint(equalToConstant: 44),
-        ])
-    }
-    
-    func getStocks() {
+    func getStocksAndStartUpdating() {
         NetworkManager.shared.getStockList() { [weak self] result in
             guard let self = self else { return }
             
@@ -52,7 +39,7 @@ class StockListVC: UIViewController {
                 self.stockList.append(contentsOf: stocks.mypageDefaults)
                 self.pageInfo.append(contentsOf: stocks.mypage)
                 self.updateViewOnMainThread()
-                self.startUpdatingStocks()
+                self.startUpdatingStocks(pair: self.callPair)
                 
             case .failure(let error):
                 print(error.rawValue)
@@ -60,14 +47,15 @@ class StockListVC: UIViewController {
         }
     }
     
-    func startUpdatingStocks() {
+    func startUpdatingStocks(pair: CallPair) {
         var tkeList: [String] = []
         for stock in stockList { tkeList.append(stock.tke) }
-        NetworkManager.shared.updateStockData(tkeList: tkeList, fieldOne: "las", fieldTwo: "pdd") { [weak self] result in
+        NetworkManager.shared.updateStockData(tkeList: tkeList, pair: pair) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let data):
+                self.stockData.removeAll()
                 self.stockData.append(contentsOf: data.l)
                 self.updateViewOnMainThread()
             case .failure(let error):
@@ -83,6 +71,7 @@ class StockListVC: UIViewController {
     }
     
     func configureTableView() {
+        view.addSubview(tableView)
         var safeArea: UILayoutGuide!
         safeArea = view.layoutMarginsGuide
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,11 +98,11 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
         let stock = stockList[indexPath.row]
-        cell.set(stock: stock)
+        cell.setStockNames(stock: stock)
         if stockData.count != 0 {
-            cell.updateStockData(with: stockData[indexPath.row])
+            cell.updateStockList(with: stockData[indexPath.row], accordingTo: callPair)
         } else {
-            cell.updateStockData(with: nil)
+            cell.updateStockList(with: nil, accordingTo: nil)
         }
         return cell
     }
@@ -134,10 +123,12 @@ extension StockListVC: TRHeaderViewDelegate {
     func didTapFilterButtonOne() {
         let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
-            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
                 self.buttonOne = action.title ?? ""
-                print(info.key)
-                self.updateViewOnMainThread()
+                let newPair = info.key.changeToPairByUpdatingFirst(second: self.callPair.second)!
+                self.callPair = newPair
+                self.startUpdatingStocks(pair: self.callPair)
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
@@ -148,10 +139,12 @@ extension StockListVC: TRHeaderViewDelegate {
     func didTapFilterButtonTwo() {
         let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
-            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { [weak self] action in
+                guard let self = self else { return }
                 self.buttonTwo = action.title ?? ""
-                print(info.key)
-                self.updateViewOnMainThread()
+                let newPair = info.key.changeToPairByUpdatingSecond(first: self.callPair.first)!
+                self.callPair = newPair
+                self.startUpdatingStocks(pair: self.callPair)
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in

@@ -48,10 +48,10 @@ class NetworkManager {
         task.resume()
     }
     
-    func updateStockData(tkeList: [String], fieldOne: String, fieldTwo: String, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
+    func updateStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         let stcs = tkeList.joined(separator: "~")
 //        let urlString = stockDataBaseUrl + "fields=" + fieldOne + "," + fieldTwo + "&stcs=" + stcs
-        let urlString = "\(stockDataBaseUrl)fields=\(fieldOne),\(fieldTwo)&stcs=\(stcs)"
+        let urlString = "\(stockDataBaseUrl)fields=\(pair.first.rawValue),\(pair.second.rawValue)&stcs=\(stcs)"
         
         guard let url = URL(string: urlString) else {
             completionHandler(.failure(.invalidUrl))
