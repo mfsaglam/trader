@@ -56,7 +56,7 @@ class StockCell: UITableViewCell {
             firstLabel.updateColor(with: value.pdd)
         case .fark:
             firstLabel.text = value.ddi ?? "---"
-            firstLabel.updateColor(with: value.pdd)
+            firstLabel.updateColor(with: value.ddi)
         case .dusuk:
             firstLabel.text = value.low ?? "---"
         case .yuksek:
@@ -86,7 +86,7 @@ class StockCell: UITableViewCell {
             secondLabel.updateColor(with: value.pdd)
         case .fark:
             secondLabel.text = "\(value.ddi ?? "---")"
-            secondLabel.updateColor(with: value.pdd)
+            secondLabel.updateColor(with: value.ddi)
         case .dusuk:
             secondLabel.text = value.low ?? "---"
         case .yuksek:
