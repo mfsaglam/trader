@@ -13,6 +13,7 @@ class StockListVC: UIViewController {
     var tableView = UITableView()
 
     var stockList: [MypageDefault] = []
+    var pageInfo: [Mypage] = []
     var stockData: [L?] = []
     
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class StockListVC: UIViewController {
             switch result {
             case .success(let stocks):
                 self.stockList.append(contentsOf: stocks.mypageDefaults)
+                self.pageInfo.append(contentsOf: stocks.mypage)
                 self.updateViewOnMainThread()
                 self.startUpdatingStocks()
                 
@@ -125,17 +127,25 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
 
 extension StockListVC: TRHeaderViewDelegate {
     func didTapFilterButtonOne() {
-        let actionSheet = UIAlertController(title: "Test", message: "Test", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Test", style: .cancel, handler: { action in
-            print("test")
+        let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
+        for info in pageInfo {
+            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+                print(info.key)
+            }))
+        }
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
         }))
         present(actionSheet, animated: true)
     }
     
     func didTapFilterButtonTwo() {
-        let actionSheet = UIAlertController(title: "Test", message: "Test", preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Test", style: .cancel, handler: { action in
-            print("test")
+        let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
+        for info in pageInfo {
+            actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { action in
+                print(info.key)
+            }))
+        }
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
         }))
         present(actionSheet, animated: true)
     }
