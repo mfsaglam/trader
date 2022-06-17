@@ -24,6 +24,12 @@ class StockCell: UITableViewCell {
             }
         }
     }
+    
+    var indicatorEstimation: String? {
+        didSet {
+            indicatorView.changeIndicator(oldValue: oldValue, newValue: indicatorEstimation)
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,8 +46,8 @@ class StockCell: UITableViewCell {
     
     func updateStockList(with value: L?, accordingTo callPair: CallPair?) {
         guard let value = value, let callPair = callPair else {
-            indicatorView.changeIndicator(with: nil)
             lastUpdatedLabel.text = "---"
+            indicatorEstimation = nil
             firstLabel.text = "---"
             firstLabel.updateColor(with: nil)
             secondLabel.text = "%---"
@@ -50,7 +56,7 @@ class StockCell: UITableViewCell {
         }
         clo = value.clo
         lastUpdatedLabel.text = clo ?? "---"
-        indicatorView.changeIndicator(with: value.ddi)
+        indicatorEstimation = value.las
         updateFirstColumn(with: value, for: callPair)
         updateSecondColumn(with: value, for: callPair)
     }

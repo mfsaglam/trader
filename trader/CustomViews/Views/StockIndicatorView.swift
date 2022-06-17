@@ -32,15 +32,15 @@ class StockIndicatorView: UIView {
         configure(for: indicatorCase)
     }
     
-    func changeIndicator(with value: String?) {
-        guard let value = value else {
+    func changeIndicator(oldValue: String?, newValue: String?) {
+        guard let oldValue = oldValue, let newValue = newValue else {
             configure(for: .natural)
             return
         }
-        if value.contains("-") {
-            configure(for: .falling)
-        } else {
+        if newValue > oldValue {
             configure(for: .rising)
+        } else {
+            configure(for: .falling)
         }
     }
     

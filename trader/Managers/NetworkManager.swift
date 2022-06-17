@@ -60,7 +60,7 @@ class NetworkManager {
     
     private func updateStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         let stcs = tkeList.joined(separator: "~")
-        let urlString = "\(stockDataBaseUrl)fields=\(pair.first.rawValue),\(pair.second.rawValue),ddi&stcs=\(stcs)"
+        let urlString = "\(stockDataBaseUrl)fields=\(pair.first.rawValue),\(pair.second.rawValue),las,ddi&stcs=\(stcs)"
         
         guard let url = URL(string: urlString) else {
             completionHandler(.failure(.invalidUrl))
