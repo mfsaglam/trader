@@ -45,7 +45,7 @@ class TRButton: UIControl {
         titleLabel.textColor = .systemGray
         
         buttonImageView.contentMode = .scaleAspectFill
-        buttonImageView.image = UIImage(systemName: "chevron.compact.down")
+        buttonImageView.image = UIImage(systemName: SFSymbols.down)
         buttonImageView.tintColor = .systemGray
         
         let padding: CGFloat = 8

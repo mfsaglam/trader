@@ -46,16 +46,16 @@ class StockCell: UITableViewCell {
     
     func updateStockList(with value: L?, accordingTo callPair: CallPair?) {
         guard let value = value, let callPair = callPair else {
-            lastUpdatedLabel.text = "---"
+            lastUpdatedLabel.text = Messages.emptyValue
             indicatorEstimation = nil
-            firstLabel.text = "---"
+            firstLabel.text = Messages.emptyValue
             firstLabel.updateColor(with: nil)
-            secondLabel.text = "%---"
+            secondLabel.text = "%\(Messages.emptyValue)"
             secondLabel.updateColor(with: nil)
             return
         }
         clo = value.clo
-        lastUpdatedLabel.text = clo ?? "---"
+        lastUpdatedLabel.text = clo ?? Messages.emptyValue
         indicatorEstimation = value.las
         updateFirstColumn(with: value, for: callPair)
         updateSecondColumn(with: value, for: callPair)
@@ -65,29 +65,29 @@ class StockCell: UITableViewCell {
         firstLabel.updateColor(with: .white)
         switch callPair.first {
         case .son:
-            firstLabel.text = value.las ?? "---"
+            firstLabel.text = value.las ?? Messages.emptyValue
         case .percentageFark:
-            firstLabel.text = "%\(value.pdd ?? "---")"
+            firstLabel.text = "%\(value.pdd ?? Messages.emptyValue)"
             firstLabel.updateColor(with: value.pdd)
         case .fark:
-            firstLabel.text = value.ddi ?? "---"
+            firstLabel.text = value.ddi ?? Messages.emptyValue
             firstLabel.updateColor(with: value.ddi)
         case .dusuk:
-            firstLabel.text = value.low ?? "---"
+            firstLabel.text = value.low ?? Messages.emptyValue
         case .yuksek:
-            firstLabel.text = value.hig ?? "---"
+            firstLabel.text = value.hig ?? Messages.emptyValue
         case .alis:
-            firstLabel.text = value.buy ?? "---"
+            firstLabel.text = value.buy ?? Messages.emptyValue
         case .satis:
-            firstLabel.text = value.sel ?? "---"
+            firstLabel.text = value.sel ?? Messages.emptyValue
         case .ogKap:
-            firstLabel.text = value.pdc ?? "---"
+            firstLabel.text = value.pdc ?? Messages.emptyValue
         case .tavan:
-            firstLabel.text = value.cei ?? "---"
+            firstLabel.text = value.cei ?? Messages.emptyValue
         case .taban:
-            firstLabel.text = value.flo ?? "---"
+            firstLabel.text = value.flo ?? Messages.emptyValue
         case .grupKodu:
-            firstLabel.text = value.gco ?? "---"
+            firstLabel.text = value.gco ?? Messages.emptyValue
         }
     }
     
@@ -95,29 +95,29 @@ class StockCell: UITableViewCell {
         secondLabel.updateColor(with: .white)
         switch callPair.second {
         case .son:
-            secondLabel.text = value.las ?? "---"
+            secondLabel.text = value.las ?? Messages.emptyValue
         case .percentageFark:
-            secondLabel.text = "%\(value.pdd ?? "---")"
+            secondLabel.text = "%\(value.pdd ?? Messages.emptyValue)"
             secondLabel.updateColor(with: value.pdd)
         case .fark:
-            secondLabel.text = "\(value.ddi ?? "---")"
+            secondLabel.text = "\(value.ddi ?? Messages.emptyValue)"
             secondLabel.updateColor(with: value.ddi)
         case .dusuk:
-            secondLabel.text = value.low ?? "---"
+            secondLabel.text = value.low ?? Messages.emptyValue
         case .yuksek:
-            secondLabel.text = value.hig ?? "---"
+            secondLabel.text = value.hig ?? Messages.emptyValue
         case .alis:
-            secondLabel.text = value.buy ?? "---"
+            secondLabel.text = value.buy ?? Messages.emptyValue
         case .satis:
-            secondLabel.text = value.sel ?? "---"
+            secondLabel.text = value.sel ?? Messages.emptyValue
         case .ogKap:
-            secondLabel.text = value.pdc ?? "---"
+            secondLabel.text = value.pdc ?? Messages.emptyValue
         case .tavan:
-            secondLabel.text = value.cei ?? "---"
+            secondLabel.text = value.cei ?? Messages.emptyValue
         case .taban:
-            secondLabel.text = value.flo ?? "---"
+            secondLabel.text = value.flo ?? Messages.emptyValue
         case .grupKodu:
-            secondLabel.text = value.gco ?? "---"
+            secondLabel.text = value.gco ?? Messages.emptyValue
         }
     }
     

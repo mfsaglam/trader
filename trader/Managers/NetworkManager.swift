@@ -10,8 +10,8 @@ import UIKit
 class NetworkManager {
     static let shared = NetworkManager()
     private var timer: Timer?
-    private let stockListUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterviewSettings"
-    private let stockDataBaseUrl = "https://sui7963dq6.execute-api.eu-central-1.amazonaws.com/default/ForeksMobileInterview?"
+    private let stockListUrl = Urls.stockListUrl
+    private let stockDataBaseUrl = Urls.stockDataBaseUrl
     
     func getStockList(completionHandler: @escaping (Result<PageDefault, TRError>) -> Void) {
         

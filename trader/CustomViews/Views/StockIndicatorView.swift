@@ -60,7 +60,7 @@ class StockIndicatorView: UIView {
             backgroundColor = .systemGreen
             indicatorImage.isHidden = false
             indicatorImage.image =
-            UIImage(systemName: "chevron.compact.up", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
+            UIImage(systemName: SFSymbols.up, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
             
             NSLayoutConstraint.activate([
                 indicatorImage.topAnchor.constraint(equalTo: self.topAnchor,constant: 4)
@@ -69,7 +69,7 @@ class StockIndicatorView: UIView {
             backgroundColor = .systemRed
             indicatorImage.isHidden = false
             indicatorImage.image =
-            UIImage(systemName: "chevron.compact.down", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
+            UIImage(systemName: SFSymbols.down, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
             
             NSLayoutConstraint.activate([
                 indicatorImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -4)

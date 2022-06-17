@@ -55,9 +55,9 @@ class TRHeaderView: UIView {
         addSubview(filterButtonOne)
         addSubview(filterButtonTwo)
         
-        symbolTitle.text = "Sembol"
-        filterButtonOne.set(title: "Son")
-        filterButtonTwo.set(title: "%Fark")
+        symbolTitle.text = ButtonTitles.sembol
+        filterButtonOne.set(title: ButtonTitles.son)
+        filterButtonTwo.set(title: ButtonTitles.percentageFark)
         
         let leadingPadding: CGFloat = 55
         let trailingPadding: CGFloat = 8

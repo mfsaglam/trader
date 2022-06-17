@@ -15,8 +15,8 @@ class StockListVC: UIViewController {
     var pageInfo: [Mypage] = []
     var stockData: [L?] = []
     
-    var buttonOne = "Son"
-    var buttonTwo = "%Fark"
+    var buttonOne = ButtonTitles.son
+    var buttonTwo = ButtonTitles.percentageFark
     
     var callPair = CallPair(first: .son, second: .percentageFark)
     
@@ -120,7 +120,7 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
 
 extension StockListVC: TRHeaderViewDelegate {
     func didTapFilterButtonOne() {
-        let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: Messages.kriterSec, message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
             actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { [weak self] action in
                 guard let self = self else { return }
@@ -130,13 +130,13 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { action in
         }))
         present(actionSheet, animated: true)
     }
     
     func didTapFilterButtonTwo() {
-        let actionSheet = UIAlertController(title: "Kriter seçiniz", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: Messages.kriterSec, message: "", preferredStyle: .actionSheet)
         for info in pageInfo {
             actionSheet.addAction(UIAlertAction(title: info.name, style: .default, handler: { [weak self] action in
                 guard let self = self else { return }
@@ -146,7 +146,7 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { action in
         }))
         present(actionSheet, animated: true)
     }
