@@ -49,8 +49,11 @@ class NetworkManager {
     
     func startUpdatingStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         stopUpdatingData()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.updateStockData(tkeList: tkeList, pair: pair, completionHandler: completionHandler)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                self.updateStockData(tkeList: tkeList, pair: pair, completionHandler: completionHandler)
+            }
         }
     }
     
