@@ -79,5 +79,4 @@ class TRHeaderView: UIView {
             filterButtonOne.widthAnchor.constraint(equalToConstant: 90)
         ])
     }
-    
 }

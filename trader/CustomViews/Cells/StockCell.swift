@@ -17,7 +17,7 @@ class StockCell: UITableViewCell {
     var secondLabel = TRTitleLabel(alignment: .right, fontSize: 20, color: .white)
     var lastUpdatedLabel = TRSecondaryTitleLabel(fontSize: 15)
     
-    var clo: String? {
+    private var clo: String? {
         didSet {
             if oldValue != clo {
                 lastUpdatedLabel.highlight()
@@ -25,7 +25,7 @@ class StockCell: UITableViewCell {
         }
     }
     
-    var indicatorEstimation: String? {
+    private var indicatorEstimation: String? {
         didSet {
             indicatorView.changeIndicator(oldValue: oldValue, newValue: indicatorEstimation)
         }
@@ -159,5 +159,4 @@ class StockCell: UITableViewCell {
             firstLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
-    
 }

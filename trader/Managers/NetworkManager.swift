@@ -57,7 +57,7 @@ class NetworkManager {
         }
     }
     
-    func stopUpdatingData() {
+    private func stopUpdatingData() {
         timer?.invalidate()
     }
     

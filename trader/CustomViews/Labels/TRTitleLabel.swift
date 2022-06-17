@@ -18,7 +18,6 @@ class TRTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     convenience init(alignment: NSTextAlignment, fontSize: CGFloat, color: UIColor) {
         self.init(frame: .zero)
         self.textAlignment = alignment

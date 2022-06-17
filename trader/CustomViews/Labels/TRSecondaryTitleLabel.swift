@@ -26,6 +26,19 @@ class TRSecondaryTitleLabel: UILabel {
         configure()
     }
     
+    func highlight() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.layer.backgroundColor = UIColor.darkGray.cgColor
+            self?.layer.cornerRadius = 8
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.layer.backgroundColor = UIColor.clear.cgColor
+            }
+        }
+    }
+    
+    //MARK: - padding methods
+    
     func padding(_ top: CGFloat, _ bottom: CGFloat, _ left: CGFloat, _ right: CGFloat) {
         self.frame = CGRect(x: 0, y: 0, width: self.frame.width + left + right, height: self.frame.height + top + bottom)
         insets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
@@ -41,17 +54,6 @@ class TRSecondaryTitleLabel: UILabel {
             contentSize.height += insets.top + insets.bottom
             contentSize.width += insets.left + insets.right
             return contentSize
-        }
-    }
-    
-    func highlight() {
-        UIView.animate(withDuration: 0.5) { [weak self] in
-            self?.layer.backgroundColor = UIColor.darkGray.cgColor
-            self?.layer.cornerRadius = 8
-        } completion: { _ in
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                self?.layer.backgroundColor = UIColor.clear.cgColor
-            }
         }
     }
     
