@@ -79,6 +79,7 @@ class StockListVC: UIViewController {
         tableView.backgroundColor = .black
         tableView.rowHeight = 55
         tableView.register(StockCell.self, forCellReuseIdentifier: StockCell.reuseID)
+        tableView.removeExceedCells()
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12041D5728610EC800351382 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12041D5628610EC800351382 /* UITableView+Ext.swift */; };
 		12267AE4285BD35F008DEBF6 /* ViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12267AE3285BD35F008DEBF6 /* ViewController+Ext.swift */; };
 		123FF447285B57E30080FF49 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF446285B57E30080FF49 /* UIView+Ext.swift */; };
 		123FF455285B653F0080FF49 /* CallPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123FF454285B653F0080FF49 /* CallPair.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12041D5628610EC800351382 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		12267AE3285BD35F008DEBF6 /* ViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Ext.swift"; sourceTree = "<group>"; };
 		123FF446285B57E30080FF49 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		123FF454285B653F0080FF49 /* CallPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPair.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				123FF446285B57E30080FF49 /* UIView+Ext.swift */,
 				123FF456285B6DFC0080FF49 /* String+Ext.swift */,
 				12267AE3285BD35F008DEBF6 /* ViewController+Ext.swift */,
+				12041D5628610EC800351382 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				123FF447285B57E30080FF49 /* UIView+Ext.swift in Sources */,
 				1295F09D285C881A0050E9D3 /* Constants.swift in Sources */,
 				12C135842858FD750002F85A /* StockListVC.swift in Sources */,
+				12041D5728610EC800351382 /* UITableView+Ext.swift in Sources */,
 				12C13598285926AD0002F85A /* StockIndicatorView.swift in Sources */,
 				1270B2A82859EC9E00ABE8C0 /* PageDefault.swift in Sources */,
 				1270B2A62859E9E000ABE8C0 /* ErrorMessage.swift in Sources */,
