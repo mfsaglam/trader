@@ -39,7 +39,7 @@ class StockIndicatorView: UIView {
         }
         if newValue > oldValue {
             configure(for: .rising)
-        } else {
+        } else if newValue < oldValue {
             configure(for: .falling)
         }
     }
