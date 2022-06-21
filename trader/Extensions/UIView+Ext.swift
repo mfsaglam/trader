@@ -23,10 +23,8 @@ extension UIView {
                     superview.removeConstraint(constraint)
                 }
             }
-            
             _superview = superview.superview
         }
-        
         self.removeConstraints(self.constraints)
     }
 }

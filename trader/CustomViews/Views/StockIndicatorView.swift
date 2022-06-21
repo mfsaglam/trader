@@ -18,19 +18,23 @@ class StockIndicatorView: UIView {
     var indicatorImage = UIImageView()
     var situation: StockIndicatorCase?
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     init(indicatorCase: StockIndicatorCase) {
         super.init(frame: .zero)
         configure(for: indicatorCase)
     }
+    
     
     func changeIndicator(oldValue: String?, newValue: String?) {
         guard let oldValue = oldValue, let newValue = newValue else {
@@ -44,6 +48,7 @@ class StockIndicatorView: UIView {
         }
     }
     
+    
     private func configure(for indicatorCase: StockIndicatorCase = .natural) {
         layer.cornerRadius = 5
         translatesAutoresizingMaskIntoConstraints = false
@@ -52,19 +57,18 @@ class StockIndicatorView: UIView {
         indicatorImage.translatesAutoresizingMaskIntoConstraints = false
         indicatorImage.contentMode = .scaleAspectFill
         indicatorImage.tintColor = .white
-        
         indicatorImage.removeAllConstraints()
         
         switch indicatorCase {
         case .rising:
             backgroundColor = .systemGreen
             indicatorImage.isHidden = false
-            indicatorImage.image =
-            UIImage(systemName: SFSymbols.up, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
+            indicatorImage.image = UIImage(systemName: SFSymbols.up, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .black))
             
             NSLayoutConstraint.activate([
                 indicatorImage.topAnchor.constraint(equalTo: self.topAnchor,constant: 4)
             ])
+            
         case .falling:
             backgroundColor = .systemRed
             indicatorImage.isHidden = false
@@ -74,6 +78,7 @@ class StockIndicatorView: UIView {
             NSLayoutConstraint.activate([
                 indicatorImage.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -4)
             ])
+            
         case .natural:
             backgroundColor = .systemGray
             indicatorImage.isHidden = true

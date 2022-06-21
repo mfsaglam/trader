@@ -16,6 +16,7 @@ enum Field: String, CaseIterable, Hashable {
     static var allCases: [Field] {
         return [.son, .percentageFark, .fark, .dusuk, .yuksek, .alis, .satis, .ogKap, .tavan, .taban, .grupKodu]
     }
+    
     case son = "las"
     case percentageFark = "pdd"
     case fark = "ddi"

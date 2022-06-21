@@ -20,36 +20,42 @@ class TRHeaderView: UIView {
     
     weak var delegate: TRHeaderViewDelegate?
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
         configureButtons()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func set(buttonOne: String, buttonTwo: String) {
         filterButtonOne.set(title: buttonOne)
         filterButtonTwo.set(title: buttonTwo)
     }
     
+    
     func configureButtons() {
         filterButtonOne.addTarget(self, action: #selector(filterButtonOneTapped), for: .touchUpInside)
         filterButtonTwo.addTarget(self, action: #selector(filterButtonTwoTapped), for: .touchUpInside)
     }
     
+    
     @objc func filterButtonOneTapped() {
         delegate?.didTapFilterButtonOne()
     }
+    
     
     @objc func filterButtonTwoTapped() {
         delegate?.didTapFilterButtonTwo()
     }
     
+    
     func configure() {
-        
         self.backgroundColor = .black
         addSubview(symbolTitle)
         addSubview(filterButtonOne)

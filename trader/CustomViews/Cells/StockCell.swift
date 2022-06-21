@@ -31,18 +31,22 @@ class StockCell: UITableViewCell {
         }
     }
 
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func setStockNames(stock: MypageDefault) {
         stockName.text = stock.cod
     }
+    
     
     func updateStockList(with value: L?, accordingTo callPair: CallPair?) {
         guard let value = value, let callPair = callPair else {
@@ -60,6 +64,7 @@ class StockCell: UITableViewCell {
         updateFirstColumn(with: value, for: callPair)
         updateSecondColumn(with: value, for: callPair)
     }
+    
     
     private func updateFirstColumn(with value: L, for callPair: CallPair) {
         firstLabel.updateColor(with: .white)
@@ -91,6 +96,7 @@ class StockCell: UITableViewCell {
         }
     }
     
+    
     private func updateSecondColumn(with value: L, for callPair: CallPair) {
         secondLabel.updateColor(with: .white)
         switch callPair.second {
@@ -120,6 +126,7 @@ class StockCell: UITableViewCell {
             secondLabel.text = value.gco ?? Messages.emptyValue
         }
     }
+    
     
     private func configure() {
         addSubview(indicatorView)

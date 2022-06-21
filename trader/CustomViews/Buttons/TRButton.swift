@@ -12,41 +12,45 @@ class TRButton: UIControl {
     var titleLabel = TRSecondaryTitleLabel(fontSize: 14)
     var buttonImageView = UIImageView()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
         configureUI()
     }
     
-    func set(title: String) {
-        self.titleLabel.text = title
-    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    func set(title: String) {
+        self.titleLabel.text = title
+    }
+    
+    
     private func configure() {
         layer.cornerRadius = 10
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemGray.cgColor
         backgroundColor = .black
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.systemGray.cgColor
         translatesAutoresizingMaskIntoConstraints = false
     }
+    
     
     private func configureUI() {
         self.addSubview(buttonImageView)
         self.addSubview(titleLabel)
-        
-        buttonImageView.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+  
         titleLabel.textAlignment = .right
         titleLabel.textColor = .systemGray
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         buttonImageView.contentMode = .scaleAspectFill
         buttonImageView.image = UIImage(systemName: SFSymbols.down)
         buttonImageView.tintColor = .systemGray
+        buttonImageView.translatesAutoresizingMaskIntoConstraints = false
         
         let padding: CGFloat = 8
         

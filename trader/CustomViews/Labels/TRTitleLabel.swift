@@ -14,9 +14,11 @@ class TRTitleLabel: UILabel {
         configure()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     convenience init(alignment: NSTextAlignment, fontSize: CGFloat, color: UIColor) {
         self.init(frame: .zero)
@@ -24,6 +26,7 @@ class TRTitleLabel: UILabel {
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
         self.textColor = color
     }
+    
     
     func updateColor(with value: String?) {
         guard let value = value else {
@@ -37,9 +40,11 @@ class TRTitleLabel: UILabel {
         }
     }
     
+    
     func updateColor(with color: UIColor) {
         textColor = color
     }
+    
     
     private func configure() {
         textColor = .white

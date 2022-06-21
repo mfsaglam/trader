@@ -18,6 +18,7 @@ extension String {
         return nil
     }
     
+    
     func changeToPairByUpdatingSecond(first: Field) -> CallPair? {
         for newField in Field.allCases {
             if newField.rawValue == self {

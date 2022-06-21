@@ -20,15 +20,18 @@ class StockListVC: UIViewController {
     
     var callPair = CallPair(first: .son, second: .percentageFark)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         getStocksAndStartUpdating()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
     
     func getStocksAndStartUpdating() {
         NetworkManager.shared.getStockList() { [weak self] result in
@@ -45,6 +48,7 @@ class StockListVC: UIViewController {
             }
         }
     }
+    
     
     func startUpdatingStocks(pair: CallPair) {
         var tkeList: [String] = []
@@ -63,11 +67,13 @@ class StockListVC: UIViewController {
         }
     }
     
+    
     func updateViewOnMainThread() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
+    
     
     func configureTableView() {
         view.addSubview(tableView)
@@ -95,6 +101,7 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
         return stockList.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.reuseID) as! StockCell
         let stock = stockList[indexPath.row]
@@ -107,12 +114,14 @@ extension StockListVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = TRHeaderView()
         headerView.delegate = self
         headerView.set(buttonOne: buttonOne, buttonTwo: buttonTwo)
         return headerView
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
@@ -131,10 +140,11 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in
         }))
         present(actionSheet, animated: true)
     }
+    
     
     func didTapFilterButtonTwo() {
         let actionSheet = UIAlertController(title: Messages.kriterSec, message: "", preferredStyle: .actionSheet)
@@ -147,7 +157,7 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in
         }))
         present(actionSheet, animated: true)
     }

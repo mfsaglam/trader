@@ -8,13 +8,14 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     private var timer: Timer?
     private let stockListUrl = Urls.stockListUrl
     private let stockDataBaseUrl = Urls.stockDataBaseUrl
     
+    
     func getStockList(completionHandler: @escaping (Result<PageDefault, TRError>) -> Void) {
-        
         guard let url = URL(string: stockListUrl) else {
             completionHandler(.failure(.invalidUrl))
             return
@@ -47,8 +48,9 @@ class NetworkManager {
         task.resume()
     }
     
+    
     func startUpdatingStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
-        stopUpdatingData()
+        timer?.invalidate()
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
@@ -57,9 +59,6 @@ class NetworkManager {
         }
     }
     
-    private func stopUpdatingData() {
-        timer?.invalidate()
-    }
     
     private func updateStockData(tkeList: [String], pair: CallPair, completionHandler: @escaping (Result<StockData, TRError>) -> Void) {
         let stcs = tkeList.joined(separator: "~")
