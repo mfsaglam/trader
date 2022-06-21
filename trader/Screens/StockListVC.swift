@@ -39,14 +39,19 @@ class StockListVC: UIViewController {
             
             switch result {
             case .success(let stocks):
-                self.stockList.append(contentsOf: stocks.mypageDefaults)
-                self.pageInfo.append(contentsOf: stocks.mypage)
-                self.updateViewOnMainThread()
-                self.startUpdatingStocks(pair: self.callPair)
+                self.updateUI(with: stocks)
             case .failure(let error):
                 self.showAlertOnMainThread(message: error.rawValue)
             }
         }
+    }
+    
+    
+    func updateUI(with stocks: PageDefault) {
+        self.stockList.append(contentsOf: stocks.mypageDefaults)
+        self.pageInfo.append(contentsOf: stocks.mypage)
+        self.updateViewOnMainThread()
+        self.startUpdatingStocks(pair: self.callPair)
     }
     
     
@@ -58,13 +63,18 @@ class StockListVC: UIViewController {
             
             switch result {
             case .success(let data):
-                self.stockData.removeAll()
-                self.stockData.append(contentsOf: data.l)
+                self.updateStockData(with: data)
                 self.updateViewOnMainThread()
             case .failure(let error):
                 print(error.rawValue)
             }
         }
+    }
+    
+    
+    func updateStockData(with data: StockData) {
+        self.stockData.removeAll()
+        self.stockData.append(contentsOf: data.l)
     }
     
     
@@ -140,8 +150,7 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in
-        }))
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in }))
         present(actionSheet, animated: true)
     }
     
@@ -157,8 +166,7 @@ extension StockListVC: TRHeaderViewDelegate {
                 self.startUpdatingStocks(pair: self.callPair)
             }))
         }
-        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in
-        }))
+        actionSheet.addAction(UIAlertAction(title: ButtonTitles.iptal, style: .cancel, handler: { _ in }))
         present(actionSheet, animated: true)
     }
 }
